@@ -1,0 +1,43 @@
+{% call question() %}
+
+<p>Write a C program, <code>bytes_extractor.c</code>, which is given <strong>4 command line arguments</strong>:</p>
+
+<ol>
+  <li><strong>source file</strong></li>
+  <li><strong>destination file</strong></li>
+  <li><strong>start_byte</strong> (zero-based)</li>
+  <li><strong>end_byte</strong> (zero-based, <strong>exclusive</strong>)</li>
+</ol>
+
+<p>
+  The program must extract the bytes in the half-open interval
+  <code>[start_byte, end_byte)</code> from the source file and write them to the destination file.
+  Use <code>fseek()</code> to position, <code>fread()</code> to read, and <code>fwrite()</code> to write.
+
+</p>
+
+<p><strong>Example:</strong></p>
+<pre is="tty">
+<kbd is="sh">echo -n "abcdefghijklmnopqrstuvwxyz" &gt; source.txt</kbd>
+<kbd is="sh">dcc bytes_extractor.c -o bytes_extractor</kbd>
+<kbd is="sh">./bytes_extractor source.txt dest.txt 13 26</kbd>
+<kbd is="sh">cat dest.txt</kbd>
+nopqrstuvwxyz
+<kbd is="sh">./bytes_extractor source.txt dest.txt 0 13</kbd>
+<kbd is="sh">cat dest.txt</kbd>
+abcdefghijklm
+</pre>
+
+fread/fgetc and fwrite/fputc are similar and both can achieve the task.
+Discuss which one is more appropriate for each situation.
+
+{% call answer() %}
+<p>
+  <strong>fread/fwrite</strong> is more appropriate when reading/writing a large number of bytes at once,
+  as it can read/write multiple bytes in a single function call, which is generally more efficient.
+</p>
+{{include_code("tlb/questions/q-fs-bytes_extractor/bytes_extractor.c")}}
+
+{% endcall %}
+
+{% endcall %}

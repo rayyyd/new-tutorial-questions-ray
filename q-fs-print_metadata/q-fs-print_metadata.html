@@ -1,0 +1,19 @@
+{% call question() %}
+
+Write a file <code>print_metadata.c</code>, which is given a file path as a command line argument and prints the file size (in bytes) and the file permissions as a string in a format similar to <code>ls -l</code> (e.g. <code>-rw-r--r--</code>). For file type, only directory <code>d</code> and regular file <code>-</code> cases are required to be handled.
+<br>
+<br>
+Example:
+
+<pre is="tty">
+<kbd is="sh">echo -n "hello" &gt; demo.txt</kbd>
+<kbd is="sh">chmod 640 demo.txt</kbd>
+<kbd is="sh">ls -l demo.txt</kbd>
+-rw-r-----  1 user  group  5 Sep  4 17:00 demo.txt
+<kbd is="sh">dcc print_metadata.c -o print_metadata</kbd>
+<kbd is="sh">./print_metadata demo.txt</kbd>
+size: 5
+perms: -rw-r-----
+</pre>
+
+{% endcall %}
