@@ -1,0 +1,44 @@
+{% call question() %}
+
+<h1>recurse-sample.c</h1>
+
+<p>
+Write a C program, <code>recurse-sample.c</code>, that walks a directory tree and prints
+each matching file’s <strong>permissions (ls -l style)</strong> and <strong>pathname</strong> when the filename contains
+the substring <code>"hello"</code>.
+</p>
+<ol>
+  <li><strong>Part 1 — Print CWD</strong>: Get and print the current working directory pathname.<br/>
+      <em>Hint:</em> <code>getcwd()</code></li>
+
+  <li><strong>Part 2 — List current directory</strong>: Print one line per entry in the current directory (non-recursive):<br/>
+      <code>&lt;perms&gt; &lt;pathname&gt;</code><br/>
+      <em>Hint: use </em> <code>readdir()</code> to recurse through subdirectories</li>
+
+  <li><strong>Part 3 — Recurse</strong>: Recurse into all subdirectories and print pathnames in the same format as Part&nbsp;1.</li>
+
+  <li><strong>Part 4 — Filter by name</strong>: Only print lines for files whose <em>basename</em> contains <code>"hello"</code> (case-sensitive match).</li>
+</ol>
+
+<p><strong>Output format</strong> (one match per line):<br/>
+<code>-rw-r--r-- ./examples/hello.txt</code></p>
+
+<p><strong>Example (setup &amp; run):</strong></p>
+<pre is="tty">
+<kbd is="sh">mkdir -p examples/sub</kbd>
+<kbd is="sh">: &gt; examples/hello.txt</kbd>
+<kbd is="sh">: &gt; examples/sub/nothello.c</kbd>
+<kbd is="sh">: &gt; examples/sub/hello_world.c</kbd>
+<kbd is="sh">dcc recurse-sample.c -o recurse-sample</kbd>
+<kbd is="sh">./recurse-sample .</kbd>
+/current/working/directory
+-rw-r--r-- ./examples/hello.txt
+-rw-r--r-- ./examples/sub/hello_world.c
+</pre>
+{% call answer() %}
+
+{{include_code("tlb/questions/q-fs-recurse_sample/recurse_sample.c")}}
+
+{% endcall %}
+
+{% endcall %}

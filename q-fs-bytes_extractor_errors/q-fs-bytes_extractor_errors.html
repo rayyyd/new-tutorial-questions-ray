@@ -1,0 +1,23 @@
+{% call question() %}
+
+<p>Modify <code>bytes_extractor.c</code> to perform <strong>file operation error checking</strong>. Your program should:</p>
+
+<p><strong>Hint:</strong> Use <code>perror()</code> for system errors (e.g., open/read/write failures) and <code>fprintf(stderr, ...)</code> for your own messages (e.g., bad arguments, invalid ranges).</p>
+
+<p><strong>Example:</strong></p>
+<pre is="tty">
+<kbd is="sh">echo -n "abcdefghijklmnopqrstuvwxyz" &gt; source.txt</kbd>
+<kbd is="sh">dcc bytes_extractor.c -o bytes_extractor</kbd>
+<kbd is="sh">./bytes_extractor missing.txt dest.txt 0 5</kbd>
+bytes_extractor: fopen source: No such file or directory
+<kbd is="sh">./bytes_extractor source.txt dest.txt 13 26</kbd>
+<kbd is="sh">cat dest.txt</kbd>
+nopqrstuvwxyz
+</pre>
+
+{% call answer() %}
+
+{{include_code("tlb/questions/q-fs-bytes_extractor_errors/bytes_extractor_errors.c")}}
+
+{% endcall %}
+{% endcall %}
