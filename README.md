@@ -2,6 +2,8 @@
 
 # week 8:
 **q-fs-bytes_extractor**: coverage over basic file operations, like fopen(), fread(), fwrite(), fseek(). Currently there lacks a question which requires the whole read and write process to be covered.
+<br>
+
 **q-fs-bytes_extractor_errors**: part 2 of the above question, just to cover checking for errors.
 
 **q-fs-print_metadata**: basic coverage of stat, including file size and permissions. 
