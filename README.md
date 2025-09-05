@@ -7,7 +7,7 @@
 **q-fs-bytes_extractor_errors**: part 2 of the above question, just to cover checking for errors.
 
 **q-fs-print_metadata**: basic coverage of stat, including file size and permissions. 
-I find that in week 8, trying to cover the basics of file operations as well as the question q-fs-chmod-if-public-write.html is too much, both time and content wise, so this is a simpler, faster that just goes over the basics of file permission conversions and doesn't bother with chmod function as well.
+I find that in week 8, trying to cover the basics of file operations as well as the question q-fs-chmod-if-public-write.html is too much both time and content wise. so this is a simpler, faster question that just goes over the basics of file permission conversions and doesn't bother with chmod function as well.
 
 # week 9: 
 
